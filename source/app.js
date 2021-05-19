@@ -3,11 +3,27 @@ const app=express();
 const request=require('request')
 const dotenv = require('dotenv');
 dotenv.config();
+
 app.set("view engine", "ejs");
 app.use('/public', express.static('public'));
+
 app.get("/", (req, res)=>{
-    res.render("Home");
+    const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=avengers";
+    request(url, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            const intial = JSON.parse(body)
+            //console.log(data);
+            if(intial.Response==='False'){
+                res.send("ERROR IN THE DOMAIN");
+            }else{
+                res.render("Home", {data:intial});    
+            }
+        }else{
+            res.send('Error');
+        }
+    });
 });
+
 app.get("/result", (req, res)=>{
     const query = req.query.search;
     const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=" + query;
@@ -25,6 +41,7 @@ app.get("/result", (req, res)=>{
         }
     });
 });
+
 app.get("/result/:id", (req, res)=>{
     const url = "http://www.omdbapi.com/?apikey=43f9ba0&i=" + req.params.id;
     request(url, function(error, response, body) {
@@ -42,6 +59,8 @@ app.get("/result/:id", (req, res)=>{
         }
     });
 });
+
+
 app.get("*", (req, res)=>{
     res.send("Some Error");
 });
