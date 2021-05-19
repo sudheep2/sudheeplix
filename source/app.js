@@ -34,7 +34,7 @@ app.get("/result", (req, res)=>{
             if(data.Response==='False'){
                 res.send("Movie Not Found");
             }else{
-                res.render("Result", {data:data});    
+                res.render("result", {data:data});    
             }
         }else{
             res.send('Error');
@@ -52,7 +52,7 @@ app.get("/result/:id", (req, res)=>{
                 res.send("Movie Not Found");
             }else{
                 //res.send(data);
-                res.render("Info", {movie: data});    
+                res.render("info", {movie: data});    
             }
         }else{
             res.send('Error');
