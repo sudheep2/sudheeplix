@@ -8,7 +8,7 @@ app.set("view engine", "ejs");
 app.use('/public', express.static('public'));
 
 app.get("/", (req, res)=>{
-    const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=avengers";
+    const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=one";
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const intial = JSON.parse(body)
