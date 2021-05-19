@@ -16,7 +16,7 @@ app.get("/", (req, res)=>{
             if(intial.Response==='False'){
                 res.send("ERROR IN THE DOMAIN");
             }else{
-                res.render("Home", {data:intial});    
+                res.render("home", {data:intial});    
             }
         }else{
             res.send('Error');
