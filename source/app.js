@@ -8,7 +8,7 @@ app.set("view engine", "ejs");
 app.use('/public', express.static('public'));
 
 app.get("/", (req, res)=>{
-    const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=one";
+    const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=avengers";
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const intial = JSON.parse(body)
@@ -64,6 +64,11 @@ app.get("/result/:id", (req, res)=>{
 app.get("*", (req, res)=>{
     res.send("Some Error");
 });
+<<<<<<< HEAD
 app.listen('3000', ()=>{
     console.log("Server has started");
+=======
+app.listen(3000, ()=>{
+    console.log(`Server has started`);
+>>>>>>> 60f8c2bb7c7a528a0580e24ea58e798ad4ccd1cd
 });
