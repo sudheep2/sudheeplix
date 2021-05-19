@@ -64,11 +64,8 @@ app.get("/result/:id", (req, res)=>{
 app.get("*", (req, res)=>{
     res.send("Some Error");
 });
-<<<<<<< HEAD
+
 app.listen('3000', ()=>{
     console.log("Server has started");
-=======
-app.listen(3000, ()=>{
-    console.log(`Server has started`);
->>>>>>> 60f8c2bb7c7a528a0580e24ea58e798ad4ccd1cd
+
 });
