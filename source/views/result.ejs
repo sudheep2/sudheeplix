@@ -1,25 +1,49 @@
-<%- include("./partials/header")%>
-<div class="container viewPage">
-  <h1>Search Results are</h1>
-  <div class="row">
+
+  <%- include("./partials/header")%>
+  <head>
+    <meta charset="UTF-8">
+    <title>CodePen - Bootstrap 4 Card with background image</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+  <link rel="stylesheet" href="/source/public/css/style1.css">
+  
+  </head>
+  <body>
+  <!-- partial:index.partial.html -->
+  <section class="wrapper">
+  <div class="container">
+    
+   <div class="row">
     <% data["Search"].forEach(function(movie) { %>
-    <div
-      class="card px-2 py-2"
-      style="
-        width: 20rem;
-        margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-      "
-    >
-      <img class="card-img-top" src="<%=movie.Poster%>" alt="Image Not Found" />
-      <div class="card-body">
-        <h5 class="card-title"><%=movie["Title"]%></h5>
-        <p class="card-text">Released on <%=movie["Year"]%></p>
-        <a href="/result/<%=movie["imdbID"]%>" class="btn btn-primary">Know More</a>
+   <div class="col-sm-4">
+     <div class="card text-white card-has-bg click-col" style="background-image:url('<%=movie.Poster%>');">
+           <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+              <div class="card-body">
+                <small class="card-meta mb-2">movie</small>
+                <h4 class="card-title mt-0 ">
+                <a class="text-white" href="/result/<%=movie["imdbID"]%>"><%=movie["Title"]%></a>
+                </h4>
+                <small><i class="far fa-clock"></i> Released on <%=movie["Year"]%></small>
+            </div>
+            <div class="card-footer">
+             <div class="media">
+                <div class="media-body">
+                   <h6 class="my-0 text-white d-block">click to know more</h6>
+                  <small>about movie</small>
+               </div>
+            </div>
+           </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <% }) %>
+      <% }) %>
+   </div>
+
   </div>
-</div>
-<%- include("./partials/footer")%>
+  </section>
+  <!-- partial -->
+    
+  </body>
+  </html>
+  

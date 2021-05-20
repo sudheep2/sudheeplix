@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.set("view engine", "ejs");
-app.use('/public', express.static('public'));
+
+app.use('/source/public', express.static('public'));
 
 app.get("/", (req, res)=>{
     const url = "http://www.omdbapi.com/?apikey=43f9ba0&s=avengers";
@@ -64,8 +65,6 @@ app.get("/result/:id", (req, res)=>{
 app.get("*", (req, res)=>{
     res.send("Some Error");
 });
-
 app.listen('3000', ()=>{
     console.log("Server has started");
-
 });
