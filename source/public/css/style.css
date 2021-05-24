@@ -76,10 +76,14 @@ a, a:hover {
   flex-direction: column;
 }
 .postcard .postcard__preview-txt {
+  font-size: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
   height: 100%;
+}
+.card-text{
+  font-size: 20px;
 }
 .postcard .postcard__tagbox {
   display: flex;
